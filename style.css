@@ -1,19 +1,22 @@
 body {
-  background-color: black;
+  background: rgb(1, 0, 18);
+  /* background: linear-gradient(0deg, rgba(1, 0, 18, 1) 40%, rgba(11, 11, 66, 1) 100%); */
+  background: linear-gradient(90deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
   font-family: sans-serif, system-ui;
   font-size: 150%;
   color: white;
   margin: 0;
+  /* overflow: hidden; */
+  animation: gradient 15s ease infinite;
 }
 
-/* #startBtn {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: auto;
-  width: 60%;
-  height: 50px;
-} */
+/* animation-name: shake1;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in;
+  animation-direction: alternate;
+  animation-fill-mode: forwards; */
 #startBtn {
   width: 300px;
   height: 120px;
@@ -24,6 +27,35 @@ body {
   top: 50%;
   left: 50%;
   margin: -60px 0 0 -150px;
+}
+
+.glow {
+  position: relative;
+  left: -20%;
+  top: 100px;
+  width: 1px;
+  height: 1px;
+  border-radius: 50%;
+  background-color: #0000d9;
+  box-shadow:
+    0 0 5px 15px #0000d9,
+    0 0 15px 35px #00008b,
+    0 0 30px 45px #00003f;
+  animation-name: glow;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in;
+  animation-direction: alternate;
+  animation-fill-mode: forwards;
+}
+
+.move {
+  animation-name: move;
+  animation-fill-mode: forwards;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  animation-duration: 20s;
+  animation-delay: 5s;
 }
 
 .bubble {
@@ -42,7 +74,7 @@ body {
 
 .blob1 {
   animation-name: blob1, shake1;
-  animation-duration: 2s;
+  animation-duration: 1.6s;
   animation-iteration-count: 1;
   animation-timing-function: ease-in;
   animation-fill-mode: forwards;
@@ -50,7 +82,7 @@ body {
 
 .blob2 {
   animation-name: blob2, shake2;
-  animation-duration: 2s;
+  animation-duration: 1.7s;
   animation-iteration-count: 1;
   animation-timing-function: ease-in;
   animation-fill-mode: forwards;
@@ -58,7 +90,7 @@ body {
 
 .blob3 {
   animation-name: blob3, shake3;
-  animation-duration: 2s;
+  animation-duration: 1.8s;
   animation-iteration-count: 1;
   animation-timing-function: ease-in;
   animation-fill-mode: forwards;
@@ -97,7 +129,7 @@ body {
   100% {
     height: 28px;
     width: 28px;
-    top: -180px;
+    top: -200px;
     opacity: 0;
   }
 }
@@ -124,7 +156,7 @@ body {
   100% {
     height: 28px;
     width: 28px;
-    top: -200px;
+    top: -220px;
     opacity: 0;
   }
 }
@@ -151,7 +183,7 @@ body {
   100% {
     height: 30px;
     width: 30px;
-    top: -160px;
+    top: -180px;
     opacity: 0;
   }
 }
@@ -219,5 +251,44 @@ body {
 
   100% {
     left: -8px;
+  }
+}
+
+@keyframes glow {
+  0% {
+    opacity: 0.8;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes move {
+  0% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.9;
+  }
+
+  100% {
+    left: 120%;
+    opacity: 0;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
   }
 }

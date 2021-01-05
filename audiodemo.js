@@ -5,8 +5,23 @@ $(function() {
       opacity: 0,
       height: "toggle"
     }, 1000, function() {
+
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      const audioCtx = new AudioContext();
+
+      function playSweep() {
+           let osc = audioCtx.createOscillator();
+           osc.type = 'square';
+           osc.frequency.value = 220;
+           osc.connect(audioCtx.destination);
+           osc.start();
+           osc.stop(audioCtx.currentTime + 0.1);
+      }
+
+
       $(document).click(function(e) {
-        const u = Math.floor(Math.random()* 3 + 1);
+        //playSweep();
+        const u = Math.floor(Math.random() * 3 + 1);
         for (let i = 0; i < u; i++) {
           var div = $('<div class="image-wrapper">')
             .css({
