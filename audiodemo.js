@@ -6,20 +6,23 @@ $(function() {
       height: "toggle"
     }, 1000, function() {
       $(document).click(function(e) {
-        var div = $('<div class="image-wrapper">')
-          .css({
-            "left": getRndm(e.pageX) + 'px',
-            "top": getRndm(e.pageY) + 'px'
-          })
-          .append($('<div class="bubble">'))
-          .appendTo(document.body);
+        const u = Math.floor(Math.random()* 3 + 1);
+        for (let i = 0; i < u; i++) {
+          var div = $('<div class="image-wrapper">')
+            .css({
+              "left": getRndm(e.pageX) + 'px',
+              "top": getRndm(e.pageY) + 'px'
+            })
+            .append($('<div class="bubble blob' + getRndm2().toString() + '">'))
+            .appendTo(document.body);
 
-        setTimeout(function() {
-          div.addClass('fade-out');
           setTimeout(function() {
-            div.remove();
-          }, fadeDuration);
-        }, fadeDelay);
+            div.addClass('fade-out');
+            setTimeout(function() {
+              div.remove();
+            }, fadeDuration);
+          }, fadeDelay);
+        }
       });
     });
     // bringUI.onfinish = function() {
@@ -33,8 +36,22 @@ $(function() {
 
 });
 
+const times = x => f => {
+  if (x > 0) {
+    f()
+    times(x - 1)(f)
+  }
+}
+
+// use it
+
+
 function getRndm(number) {
-  let num = Math.floor(Math.random() * 9) + 1; // this will get a number between 1 and 99;
-  num *= Math.round(Math.random()) ? 1 : -1; // this will add minus sign in 50% of cases
+  let num = Math.floor(Math.random() * 15) + 1;
+  num *= Math.round(Math.random()) ? 1 : -1;
   return Math.floor(num + number);
+}
+
+function getRndm2() {
+  return Math.floor(Math.random() * 3) + 1;
 }
