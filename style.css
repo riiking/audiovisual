@@ -1,32 +1,33 @@
 body {
-  background: rgb(1, 0, 18);
-  /* background: linear-gradient(0deg, rgba(1, 0, 18, 1) 40%, rgba(11, 11, 66, 1) 100%); */
-  background: linear-gradient(90deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-  background-size: 400% 400%;
+
   font-family: sans-serif, system-ui;
   font-size: 150%;
   color: white;
   margin: 0;
-  /* overflow: hidden; */
-  animation: gradient 15s ease infinite;
+  overflow: hidden;
+
 }
 
-/* animation-name: shake1;
-  animation-duration: 2s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-in;
-  animation-direction: alternate;
-  animation-fill-mode: forwards; */
 #startBtn {
   width: 300px;
   height: 120px;
   padding: 0px;
-  /*font-weight: bold;*/
   font-size: 35px;
   position: absolute;
   top: 50%;
   left: 50%;
   margin: -60px 0 0 -150px;
+}
+
+#main {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background: rgb(1, 0, 18);
+  background: linear-gradient(0deg, #03131f, #337ea6);
+  animation: gradient 15s ease 1;
+  background-size: 400% 400%;
+  animation-fill-mode: forwards;
 }
 
 .glow {
@@ -281,14 +282,9 @@ body {
 
 @keyframes gradient {
   0% {
-    background-position: 0% 50%;
+    background-position: 50% 0%;
   }
-
-  50% {
-    background-position: 100% 50%;
-  }
-
   100% {
-    background-position: 0% 50%;
+    background-position: 50% 100%;
   }
 }
